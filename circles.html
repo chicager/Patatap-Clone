@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Circles</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="circles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.28/howler.min.js"></script>
     <script src="paper-full.js"></script>
-
     <script type="text/paperscript" canvas="myCanvas">
     
+        var isTextShown = 1;
+
         var keyData = {
             q: {
                 color: "#1abc9c",
@@ -183,7 +185,14 @@
         var circles = [];
 
         function onKeyDown(event){ 
+            
             if(keyData[event.key]){
+                
+                if(isTextShown){
+                    document.querySelector('h1').remove();;
+                    isTextShown--;
+                }
+                
                 var maxPoint = new Point(view.size.width, view.size.height);
                 var randomPoint = Point.random();
                 var point = maxPoint * randomPoint;
@@ -206,5 +215,6 @@
 </head>
 <body>
     <canvas id="myCanvas" resize></canvas>
+    <h1>Press any key...</h1>
 </body>
 </html>
