@@ -180,7 +180,7 @@ $(document).ready(function () {
     if (isMobile) {
         $('h1').text("Tap to begin...");
     } else {
-        $('h1').text("Press any key...");
+        $('h1').text("Press any key (en)...");
     }
 });
 
